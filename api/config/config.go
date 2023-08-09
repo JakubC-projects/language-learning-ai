@@ -7,14 +7,14 @@ import (
 )
 
 type Config struct {
-	ApiKey           string `json:"api_key,omitempty"`
-	Model            string `json:"model,omitempty"`
-	SystemPrompt     string `json:"system_prompt,omitempty"`
-	Temperature      int    `json:"temperature,omitempty"`
-	TopP             int    `json:"top_p,omitempty"`
-	MaxTokens        int    `json:"max_tokens,omitempty"`
-	PresencePenalty  int    `json:"presence_penalty,omitempty"`
-	FrequencyPenalty int    `json:"frequency_penalty,omitempty"`
+	ApiKey           string  `json:"api_key,omitempty"`
+	Model            string  `json:"model,omitempty"`
+	SystemPrompt     string  `json:"system_prompt,omitempty"`
+	Temperature      float64 `json:"temperature,omitempty"`
+	TopP             float64 `json:"top_p,omitempty"`
+	MaxTokens        int     `json:"max_tokens,omitempty"`
+	PresencePenalty  float64 `json:"presence_penalty,omitempty"`
+	FrequencyPenalty float64 `json:"frequency_penalty,omitempty"`
 }
 
 var C Config
