@@ -1,10 +1,10 @@
-package api
+package router
 
 import (
 	"io"
 
-	"github.com/JakubC-projects/language-learning-ai/api/chatgpt"
-	"github.com/JakubC-projects/language-learning-ai/api/config"
+	"github.com/JakubC-projects/language-learning-ai/chatgpt"
+	"github.com/JakubC-projects/language-learning-ai/config"
 	"github.com/gin-gonic/gin"
 	"github.com/gin-gonic/gin/binding"
 )

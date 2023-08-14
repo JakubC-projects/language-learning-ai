@@ -4,11 +4,11 @@ type ChatCompletionRequest struct {
 	Model            string    `json:"model,omitempty"`
 	Messages         []Message `json:"messages,omitempty"`
 	Stream           bool      `json:"stream,omitempty"`
-	Temperature      int       `json:"temperature,omitempty"`
-	TopP             int       `json:"top_p,omitempty"`
+	Temperature      float64   `json:"temperature,omitempty"`
+	TopP             float64   `json:"top_p,omitempty"`
 	MaxTokens        int       `json:"max_tokens,omitempty"`
-	PresencePenalty  int       `json:"presence_penalty,omitempty"`
-	FrequencyPenalty int       `json:"frequency_penalty,omitempty"`
+	PresencePenalty  float64   `json:"presence_penalty,omitempty"`
+	FrequencyPenalty float64   `json:"frequency_penalty,omitempty"`
 }
 
 type ChatCompletionResponse struct {

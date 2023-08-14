@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/JakubC-projects/language-learning-ai/api/config"
+	"github.com/JakubC-projects/language-learning-ai/config"
 	"github.com/stretchr/testify/assert"
 )
 
