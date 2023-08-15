@@ -3,10 +3,11 @@ package html
 import (
 	"net/http"
 
+	"github.com/JakubC-projects/language-learning-ai/src/auth"
 	"github.com/JakubC-projects/language-learning-ai/src/chat"
 	"github.com/JakubC-projects/language-learning-ai/src/router/middleware"
-	"github.com/gin-contrib/sessions"
 	"github.com/gin-gonic/gin"
+	"github.com/samber/lo"
 )
 
 func LoadRoutes(r *gin.Engine) {
@@ -15,7 +16,7 @@ func LoadRoutes(r *gin.Engine) {
 		c.HTML(http.StatusOK, "pages/home.html", HomePage{Messages: chat.Chat})
 	})
 	authenticatedRouter.GET("/components/user", func(c *gin.Context) {
-		user := sessions.Default(c).Get("user")
+		user := lo.Must(auth.GetUser(c))
 		c.HTML(http.StatusOK, "components/user.html", user)
 	})
 }
