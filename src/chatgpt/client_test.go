@@ -4,12 +4,12 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/JakubC-projects/language-learning-ai/config"
+	"github.com/JakubC-projects/language-learning-ai/src/config"
 	"github.com/stretchr/testify/assert"
 )
 
 func TestChatCompletions(t *testing.T) {
-	c := NewClient(config.C.ApiKey)
+	c := NewClient(config.C.ChatGptApiKey)
 
 	res, err := c.CreateChatCompletion(ChatCompletionRequest{
 		Model: "gpt-3.5-turbo",
@@ -24,7 +24,7 @@ func TestChatCompletions(t *testing.T) {
 }
 
 func TestChatCompletionsChan(t *testing.T) {
-	c := NewClient(config.C.ApiKey)
+	c := NewClient(config.C.ChatGptApiKey)
 
 	err := c.CreateChatCompletionChan(ChatCompletionRequest{
 		Model: "gpt-3.5-turbo",

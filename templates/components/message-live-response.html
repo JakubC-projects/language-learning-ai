@@ -1,0 +1,6 @@
+<div hx-sse="connect:/generate-response" id="streamed-response">
+    <div hx-sse="swap:close" hx-target="#streamed-response" hx-swap="outerHTML"></div>
+    <div hx-sse="swap:message">
+    {{template "components/message.html" .}}
+    </div>
+</div>

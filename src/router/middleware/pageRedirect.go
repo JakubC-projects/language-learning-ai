@@ -8,7 +8,7 @@ import (
 
 func HTMXRedirect(c *gin.Context) {
 	if !isHTMX(c) {
-		c.HTML(http.StatusOK, "index.gohtml", nil)
+		c.HTML(http.StatusOK, "index.html", nil)
 		c.Abort()
 	} else {
 		c.Next()

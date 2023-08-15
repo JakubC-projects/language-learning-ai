@@ -10,11 +10,17 @@ import (
 )
 
 func loadTemplates(r *gin.Engine) {
+	r.SetHTMLTemplate(htmlTemplate)
+}
+
+var htmlTemplate *template.Template
+
+func init() {
 	tmpl, err := findAndParseTemplates("templates", nil)
 	if err != nil {
 		panic(fmt.Errorf("cannot parse templates: %w", err))
 	}
-	r.SetHTMLTemplate(tmpl)
+	htmlTemplate = tmpl
 }
 
 func findAndParseTemplates(rootDir string, funcMap template.FuncMap) (*template.Template, error) {

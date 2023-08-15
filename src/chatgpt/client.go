@@ -121,6 +121,7 @@ func (c Client) makeCompletionsRequest(request ChatCompletionRequest) (*http.Res
 	}
 	return resp, nil
 }
+
 func NewClient(apiKey string) *Client {
 	return &Client{apiKey: apiKey}
 }
