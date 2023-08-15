@@ -9,7 +9,7 @@ import (
 
 func IsAuthenticated(c *gin.Context) {
 	_, err := auth.GetUser(c)
-	if err == nil {
+	if err != nil {
 		c.Header("HX-Redirect", "/login")
 		c.Header("HX-Push", "/login")
 		c.Redirect(http.StatusTemporaryRedirect, "/login")

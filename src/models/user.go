@@ -1,5 +1,7 @@
 package models
 
 type User struct {
-	Username string
+	Id             string
+	Name           string
+	ProfilePicture string
 }

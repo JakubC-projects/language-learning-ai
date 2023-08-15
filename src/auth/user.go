@@ -7,6 +7,7 @@ import (
 	"github.com/JakubC-projects/language-learning-ai/src/models"
 	"github.com/gin-contrib/sessions"
 	"github.com/gin-gonic/gin"
+	"golang.org/x/oauth2"
 )
 
 var userSessionKey = "user"
@@ -37,3 +38,7 @@ func RemoveUserSession(c *gin.Context) error {
 }
 
 var ErrNotAuthenticated = errors.New("not authenticated")
+
+func GetUserFromToken(t oauth2.Token) models.User {
+	return models.User{}
+}
