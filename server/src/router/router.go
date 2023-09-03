@@ -8,5 +8,6 @@ import (
 func LoadRoutes(r *gin.Engine) {
 	authenticated := r.Group("/", middleware.IsAuthenticated)
 	authenticated.GET("/chats", GetChats)
+	r.POST("/chats", createChat)
 	authenticated.GET("/messages", GetChats)
 }

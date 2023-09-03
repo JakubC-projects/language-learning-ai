@@ -9,10 +9,15 @@ import (
 	"log"
 	"net/http"
 	"strings"
+	"time"
 )
 
 type Client struct {
 	apiKey string
+}
+
+func NewClient(apiKey string) *Client {
+	return &Client{apiKey: apiKey}
 }
 
 func (c Client) CreateChatCompletion(request ChatCompletionRequest) (ChatCompletionResponse, error) {
@@ -64,6 +69,26 @@ func (c Client) CreateChatCompletionChan(request ChatCompletionRequest, response
 		} else {
 			break
 		}
+	}
+	return nil
+}
+
+func (c Client) CreateTestChatCompletionChan(request ChatCompletionRequest, response chan ChatCompletionChunkResponse) error {
+	resp := []string{
+		"Duldek,", " this", " is", " a", " test", " response.",
+	}
+
+	for _, part := range resp {
+		time.Sleep(500 * time.Millisecond)
+		chunk := ChatCompletionChunkResponse{
+			Choices: []ChoiceChunk{
+				{Delta: Message{
+					Role:    "assistant",
+					Content: part,
+				}},
+			},
+		}
+		response <- chunk
 	}
 	return nil
 }
@@ -120,8 +145,4 @@ func (c Client) makeCompletionsRequest(request ChatCompletionRequest) (*http.Res
 		return nil, fmt.Errorf("cannot get response: %w", err)
 	}
 	return resp, nil
-}
-
-func NewClient(apiKey string) *Client {
-	return &Client{apiKey: apiKey}
 }

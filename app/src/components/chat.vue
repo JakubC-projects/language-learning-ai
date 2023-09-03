@@ -6,7 +6,7 @@
       <p>{{ message.content }}</p>
     </div>
     <div class="fixed bottom-0 w-[1024px]">
-      <Prompt/>
+      <Prompt @submit="createChat2"/>
     </div>
   </div>
 </template>
@@ -14,8 +14,15 @@
 import { ref } from 'vue';
 import { Message } from '../types/message';
 import Prompt from './prompt.vue';
+import { createChat,  CreateChatResponse} from '../api/chat';
 
 
 const conversation = ref<Message[]>([])
+
+function createChat2(prompt: string) {
+  createChat(prompt, (resp: CreateChatResponse) => {
+    console.log("callback: ", resp)
+  })
+}
 
 </script>
