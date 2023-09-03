@@ -44,3 +44,12 @@ export async function ensureIsLoggedIn(): Promise<boolean> {
     return false
 
 }
+
+export async function logout(): Promise<void> {
+  if (!auth0Client) return;
+  return auth0Client.logout({
+    logoutParams: {
+      returnTo: "http://localhost:8080"
+    }
+  });
+}
